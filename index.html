@@ -115,11 +115,12 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        
+          <h1 id="introduction">Introduction</h1>
 
 <p>Welcome to the Slyce API! </p>
 
-<h1 id="setup">Setup</h1>
+          <h1 id="setup">Setup</h1>
 
 <p><strong>Base URI</strong>: <code class="prettyprint">https://api.slycepay.com/v1</code></p>
 
@@ -127,7 +128,7 @@
 
 <p><strong>Current Version</strong>: <code class="prettyprint">1.0</code></p>
 
-<h1 id="authentication">Authentication</h1>
+          <h1 id="authentication">Authentication</h1>
 
 <blockquote>
 <p>To authorize, use this code:</p>
@@ -151,7 +152,7 @@ curl "api_endpoint_here"
 You must replace <code>meowmeowmeow</code> with your own API key.
 </aside>
 
-<h1 id="payplans">Payplans</h1>
+          <h1 id="payplans">Payplans</h1>
 
 <p>Payplan handles all types of recurring plans.</p>
 
@@ -448,7 +449,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 </tr>
 <tr>
 <td>method*</td>
-<td>The payment method ID to use.</td>
+<td>The payment method to use. Format: <code class="prettyprint">cc:&lt;id&gt;</code> for cards. <code class="prettyprint">ach:&lt;id&gt;</code> for ACH/Check payments. E.g.: <code class="prettyprint">cc:12</code>.</td>
 </tr>
 <tr>
 <td>type*</td>
@@ -559,7 +560,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 </thead><tbody>
 <tr>
 <td>method</td>
-<td>The payment method ID to use.</td>
+<td>The payment method to use. Format: <code class="prettyprint">cc:&lt;id&gt;</code> for cards. <code class="prettyprint">ach:&lt;id&gt;</code> for ACH/Check payments. E.g.: <code class="prettyprint">cc:12</code>.</td>
 </tr>
 <tr>
 <td>scheme</td>
@@ -640,7 +641,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 </tr>
 </tbody></table>
 
-<h1 id="customers">Customers</h1>
+          <h1 id="customers">Customers</h1>
 
 <h2 id="view">View</h2>
 
@@ -985,7 +986,200 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 </tr>
 </tbody></table>
 
-<h1 id="fees">Fees</h1>
+          <h1 id="ach-checks">ACH/Checks</h1>
+
+<h2 id="view">View</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test ACH"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXX-X678-9"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"routing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXX-X678-9"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves specific customer&rsquo;s check details.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET customers/&lt;CUSTID&gt;/checks/&lt;METHODID&gt;</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CUSTID</td>
+<td>The ID of the customer.</td>
+</tr>
+<tr>
+<td>METHODID</td>
+<td>Method ID.</td>
+</tr>
+</tbody></table>
+
+<h2 id="view-all">View All</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test ACH"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXX-X678-9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"routing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXX-X678-9"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1396</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACH_1463644675"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXX-X678-9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"routing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXX-X678-9"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1393</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACH_1463644619"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXX-X678-9"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"routing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXX-X678-9"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all customer&rsquo;s saved checks.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET customers/&lt;CUSTID&gt;/checks</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CUSTID</td>
+<td>The ID of the customer.</td>
+</tr>
+</tbody></table>
+
+<h2 id="create">Create</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1603</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"check"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test ACH"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXX-X678-9"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"routing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXX-X678-9"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint creates new customer&rsquo;s check.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST customers/&lt;CUSTID&gt;/checks</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CUSTID</td>
+<td>The ID of the customer.</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>account*</td>
+<td></td>
+<td>Check account number.</td>
+</tr>
+<tr>
+<td>routing*</td>
+<td></td>
+<td>Routing number.</td>
+</tr>
+<tr>
+<td>check*</td>
+<td></td>
+<td>Check number.</td>
+</tr>
+<tr>
+<td>name*</td>
+<td></td>
+<td>Payment method name.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">* = Required.</aside>
+
+<h2 id="delete">Delete</h2>
+
+<blockquote>
+<p>Returns <code class="prettyprint">true</code> on successful</p>
+</blockquote>
+
+<p>This method lets you remove saved checks.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST customers/&lt;CUSTID&gt;/checks/&lt;METHODID&gt;</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CUSTID</td>
+<td>The ID of the customer.</td>
+</tr>
+<tr>
+<td>METHODID</td>
+<td>Payment method ID.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="fees">Fees</h1>
 
 <h2 id="view">View</h2>
 
@@ -1175,7 +1369,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 </tr>
 </tbody></table>
 
-<h1 id="transactions">Transactions</h1>
+          <h1 id="transactions">Transactions</h1>
 
 <h2 id="view">View</h2>
 
