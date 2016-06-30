@@ -1769,118 +1769,104 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 </tr>
 </thead><tbody>
 <tr>
+<td>number</td>
+<td>string</td>
+<td>Invoice Number</td>
+</tr>
+<tr>
+<td>date</td>
+<td>string</td>
+<td>Invoice Date.</td>
+</tr>
+<tr>
 <td>logo</td>
 <td>string</td>
 <td>Invoice logo link.</td>
 </tr>
 <tr>
-<td>to</td>
+<td>mail_to</td>
 <td>string</td>
 <td>Email where invoice will be send</td>
 </tr>
 <tr>
-<td>custnum</td>
+<td>mail_body</td>
 <td>string</td>
-<td>Customer number</td>
+<td>Email body. Can be html.</td>
 </tr>
 <tr>
 <td>customer</td>
 <td>string</td>
-<td>Encoded data of customer</td>
+<td>Json data of customer</td>
 </tr>
 <tr>
-<td>invoiceNum</td>
-<td>string</td>
-<td>Invoice Number</td>
-</tr>
-<tr>
-<td>invoiceDate</td>
-<td>string</td>
-<td>Date invoice created</td>
-</tr>
-<tr>
-<td>invoiceDue</td>
-<td>string</td>
-<td>Due date of Invoice</td>
-</tr>
-<tr>
-<td>merchant[id]</td>
+<td>line_items</td>
 <td>array</td>
-<td>Merchant ID</td>
-</tr>
-<tr>
-<td>merchant[name]</td>
-<td>array</td>
-<td>Merchant Name</td>
-</tr>
-<tr>
-<td>merchant[city]</td>
-<td>array</td>
-<td>Merchant City</td>
-</tr>
-<tr>
-<td>merchant[street]</td>
-<td>array</td>
-<td>Merchant Street</td>
-</tr>
-<tr>
-<td>merchant[CityStateZip]</td>
-<td>array</td>
-<td>Merchant (city,state,zip)</td>
-</tr>
-<tr>
-<td>merchant[contact]</td>
-<td>array</td>
-<td>Merchant&rsquo;s contact</td>
-</tr>
-<tr>
-<td>merchant[email]</td>
-<td>array</td>
-<td>Merchant&rsquo;s email</td>
-</tr>
-<tr>
-<td>lineitem#sku</td>
-<td>string</td>
-<td>Product item sku</td>
-</tr>
-<tr>
-<td>lineitem#productName</td>
-<td>string</td>
-<td>Product item name</td>
-</tr>
-<tr>
-<td>lineitem#unitCost</td>
-<td>string</td>
-<td>Item cost</td>
-</tr>
-<tr>
-<td>lineitem#unitQuantity</td>
-<td>string</td>
-<td>Item quantity</td>
-</tr>
-<tr>
-<td>lineitem#unitPrice</td>
-<td>string</td>
-<td>Total amount resulting from the cost &amp; quantity</td>
-</tr>
-<tr>
-<td>subtotal</td>
-<td>string</td>
-<td>Resulting total of all the items</td>
+<td>Array of objects.</td>
 </tr>
 <tr>
 <td>credit</td>
 <td>string</td>
 <td>Customer credit</td>
 </tr>
-<tr>
-<td>total</td>
-<td>string</td>
-<td>Invoice total amount</td>
-</tr>
 </tbody></table>
 
-<aside class="notice"># = denotes a number in line items.</aside>
+<blockquote>
+<p>Sample JSON structure like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV-0001"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29 June, 2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/invoice_logos.s3.amazonaws.com\/bleh.png"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mail_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;span style=\"color: #000000;\"&gt;This email is a reminder that the balance on your account is &lt;strong style=\"font-weight: bold\"&gt;$210.00&lt;\/strong&gt;. We accept MasterCard, VISA, Discover and American Express. If your payment is already on its way, we thank you and ask that you please disregard this notice. If not, we would appreciate receipt of your payment as soon as possible. If you would like to further discuss the details of your account, please do not hesitate to call billing at &lt;strong style=\"font-weight: bold\"&gt;&lt;\/strong&gt;.&lt;\/span&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"credit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$0.00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mail_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jamesj@zylun.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"section"</span><span class="p">:</span><span class="w"> </span><span class="s2">"content"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9ypnPRT9v2ChPCQv"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"custid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9ypnPRT9v2ChPCQv_2266"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer  "</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Portal"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"evelynlopz@outlook.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1002</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1233476"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My ProductName 11"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$200.00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-29"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1003</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1233476"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sub Product 11"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$10.00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">1002</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-29"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1004</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09324174593"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ice Blast"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$10.08"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">1002</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-29"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h2 id="view">View</h2>
 
