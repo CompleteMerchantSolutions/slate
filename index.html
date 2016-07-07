@@ -1776,7 +1776,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 <tr>
 <td>date</td>
 <td>string</td>
-<td>Invoice Date.</td>
+<td>Invoice Date (Y-m-d).</td>
 </tr>
 <tr>
 <td>logo</td>
@@ -1794,19 +1794,134 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 <td>Email body. Can be html.</td>
 </tr>
 <tr>
-<td>customer</td>
+<td>credit</td>
 <td>string</td>
+<td>Customer credit</td>
+</tr>
+<tr>
+<td>customer</td>
+<td>json</td>
 <td>Json data of customer</td>
+</tr>
+<tr>
+<td>&ndash; custid</td>
+<td>string</td>
+<td>Customer ID</td>
+</tr>
+<tr>
+<td>&ndash; first_name</td>
+<td>string</td>
+<td>Customer&rsquo;s firstname</td>
+</tr>
+<tr>
+<td>&ndash; last_name</td>
+<td>string</td>
+<td>Customer&rsquo;s lastname</td>
+</tr>
+<tr>
+<td>&ndash; email</td>
+<td>string</td>
+<td>Customer&rsquo;s email</td>
+</tr>
+<tr>
+<td>&ndash; phone</td>
+<td>string</td>
+<td>Customer&rsquo;s contact number</td>
+</tr>
+<tr>
+<td>&ndash; company</td>
+<td>string</td>
+<td>Company</td>
+</tr>
+<tr>
+<td>&ndash; street1</td>
+<td>string</td>
+<td>Street 1</td>
+</tr>
+<tr>
+<td>&ndash; street2</td>
+<td>string</td>
+<td>Street 2</td>
+</tr>
+<tr>
+<td>&ndash; city</td>
+<td>string</td>
+<td>City</td>
+</tr>
+<tr>
+<td>&ndash; state</td>
+<td>string</td>
+<td>State</td>
+</tr>
+<tr>
+<td>&ndash; zip</td>
+<td>string</td>
+<td>ZIP</td>
 </tr>
 <tr>
 <td>line_items</td>
 <td>array</td>
-<td>Array of objects.</td>
+<td>Array of objects</td>
 </tr>
 <tr>
-<td>credit</td>
+<td>&ndash; id</td>
+<td>integer</td>
+<td>ID</td>
+</tr>
+<tr>
+<td>&ndash; sku</td>
+<td>integer</td>
+<td>Item identification code</td>
+</tr>
+<tr>
+<td>&ndash; name</td>
+<td>integer</td>
+<td>Item name</td>
+</tr>
+<tr>
+<td>&ndash; quantity</td>
+<td>integer</td>
+<td>Number of items</td>
+</tr>
+<tr>
+<td>&ndash; total_cost</td>
+<td>float</td>
+<td>Total cost of the item</td>
+</tr>
+<tr>
+<td>&ndash; due_date</td>
 <td>string</td>
-<td>Customer credit</td>
+<td>Date due (Y-m-d)</td>
+</tr>
+<tr>
+<td>&ndash; child</td>
+<td>array</td>
+<td>Items as a child</td>
+</tr>
+<tr>
+<td>- -id</td>
+<td>integer</td>
+<td>Item id</td>
+</tr>
+<tr>
+<td>- -sku</td>
+<td>string</td>
+<td>Item identification code</td>
+</tr>
+<tr>
+<td>- -name</td>
+<td>string</td>
+<td>Item name</td>
+</tr>
+<tr>
+<td>- -quantity</td>
+<td>integer</td>
+<td>Number of items</td>
+</tr>
+<tr>
+<td>- -total_cost</td>
+<td>float</td>
+<td>Total cost of the item</td>
 </tr>
 </tbody></table>
 
@@ -1814,13 +1929,13 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 <p>Sample JSON structure like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV-0001"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29 June, 2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV-0003"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/invoice_logos.s3.amazonaws.com\/bleh.png"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"mail_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;span style=\"color: #000000;\"&gt;This email is a reminder that the balance on your account is &lt;strong style=\"font-weight: bold\"&gt;$210.00&lt;\/strong&gt;. We accept MasterCard, VISA, Discover and American Express. If your payment is already on its way, we thank you and ask that you please disregard this notice. If not, we would appreciate receipt of your payment as soon as possible. If you would like to further discuss the details of your account, please do not hesitate to call billing at &lt;strong style=\"font-weight: bold\"&gt;&lt;\/strong&gt;.&lt;\/span&gt;"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"credit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$0.00"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"mail_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jamesj@zylun.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"section"</span><span class="p">:</span><span class="w"> </span><span class="s2">"content"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mail_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"credit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$12.00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mail_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"evelynl@zylun.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"include_pdf"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9ypnPRT9v2ChPCQv"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"custid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9ypnPRT9v2ChPCQv_2266"</span><span class="p">,</span><span class="w">
@@ -1838,13 +1953,44 @@ You must replace <code>meowmeowmeow</code> with your own API key.
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1004</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09324174593"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ice Blast"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$10.08"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">1002</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-29"</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PN01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peanut"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-07"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">124</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNB01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PButter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">125</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNM01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PMayo"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-3.00"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">125</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNM01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PMayo"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-3.00"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STBJ"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Strawberry Jam"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115.50"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-07"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child"</span><span class="p">:[]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1953,8 +2099,8 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>HASH</td>
-<td>The hash of the invoice.</td>
+<td>ID</td>
+<td>The id of the invoice.</td>
 </tr>
 </tbody></table>
 
@@ -2019,7 +2165,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>HASH</td>
+<td>ID</td>
 <td>The hash of the invoice.</td>
 </tr>
 </tbody></table>
@@ -2052,7 +2198,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>HASH</td>
+<td>ID</td>
 <td>The hash of the invoice.</td>
 </tr>
 </tbody></table>
