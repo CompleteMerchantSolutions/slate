@@ -1736,7 +1736,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 
           <h1 id="invoice">Invoice</h1>
 
-<p>Lets you create invoicing and manage details.</p>
+<p>Lets you create invoice with line items. It will send the email with the attached Invoice PDF.</p>
 
 <h2 id="create">Create</h2>
 
@@ -1748,7 +1748,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invoice sent successfully."</span><span class="p">,</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gbe4O9XBZvPU0n9PALEozFYt4fsbYnoYayswAECR0jdkRwlQW0"</span><span class="w">
+    </span><span class="nt">"pdf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/email-invoices/CZIWUxRlk0AvSkKQx1xKE22rrz2JPzCN0pAY1V48atvfdPVI0X.pdf"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1857,40 +1857,83 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9ypnPRT9v2ChPCQv_8080"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customer_num"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9ypnPRT9v2ChPCQv_2266"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customer_num"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4831234"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jan Doe"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@email.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customer_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Tupas St."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jandoe@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customer_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"customer_street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customer_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cebu"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customer_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ph"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customer_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cebu"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customer_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customer_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customer_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"customer_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"invoice_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"invoice_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28 April, 2016"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"invoice_subtotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123.00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"invoice_credit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"invoice_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123.00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"summary"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nt">"invoice_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV-0003"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"invoice_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02 July, 2016"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"invoice_credit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"invoice_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"315.50"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sent"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sk-123"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"productname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bread"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"unitcost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123.00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"unitquantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$123.00"</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"invoice_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PN01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peanut"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-02"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-02 06:28:31"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-02 06:28:31"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unpaid"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sk-124"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"productname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wine"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"unitcost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123.00"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"unitquantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$123.00"</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">124</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"invoice_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNB01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PButter"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-02"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-02 06:28:31"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-02 06:28:31"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unpaid"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">125</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"invoice_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNM01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PMayo"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-02"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-02 06:28:31"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-02 06:28:31"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unpaid"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"invoice_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STBJ"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Strawberry Jam"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_cost"</span><span class="p">:</span><span class="w"> </span><span class="mf">115.5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="mf">115.5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-03"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-02 06:28:31"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-02 06:28:31"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unpaid"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"date_due"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28 April, 2016"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"date_paid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000-00-00 00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sent"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1899,7 +1942,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET invoice/&lt;HASH&gt;</code></p>
+<p><code class="prettyprint">GET invoice/&lt;ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1965,7 +2008,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST invoice/&lt;HASH&gt;/cancel</code></p>
+<p><code class="prettyprint">POST invoice/&lt;ID&gt;/cancel</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1998,7 +2041,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST invoice/&lt;HASH&gt;/paid</code></p>
+<p><code class="prettyprint">POST invoice/&lt;ID&gt;/paid</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
