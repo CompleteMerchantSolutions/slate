@@ -1747,7 +1747,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invoice sent successfully."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
     </span><span class="nt">"pdf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/email-invoices/CZIWUxRlk0AvSkKQx1xKE22rrz2JPzCN0pAY1V48atvfdPVI0X.pdf"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1801,127 +1801,170 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 <tr>
 <td>customer</td>
 <td>json</td>
-<td>Json data of customer</td>
-</tr>
-<tr>
-<td>&ndash; custid</td>
-<td>string</td>
-<td>Customer ID</td>
-</tr>
-<tr>
-<td>&ndash; first_name</td>
-<td>string</td>
-<td>Customer&rsquo;s firstname</td>
-</tr>
-<tr>
-<td>&ndash; last_name</td>
-<td>string</td>
-<td>Customer&rsquo;s lastname</td>
-</tr>
-<tr>
-<td>&ndash; email</td>
-<td>string</td>
-<td>Customer&rsquo;s email</td>
-</tr>
-<tr>
-<td>&ndash; phone</td>
-<td>string</td>
-<td>Customer&rsquo;s contact number</td>
-</tr>
-<tr>
-<td>&ndash; company</td>
-<td>string</td>
-<td>Company</td>
-</tr>
-<tr>
-<td>&ndash; street1</td>
-<td>string</td>
-<td>Street 1</td>
-</tr>
-<tr>
-<td>&ndash; street2</td>
-<td>string</td>
-<td>Street 2</td>
-</tr>
-<tr>
-<td>&ndash; city</td>
-<td>string</td>
-<td>City</td>
-</tr>
-<tr>
-<td>&ndash; state</td>
-<td>string</td>
-<td>State</td>
-</tr>
-<tr>
-<td>&ndash; zip</td>
-<td>string</td>
-<td>ZIP</td>
+<td>Json data of customer. Refer to Customer Object</td>
 </tr>
 <tr>
 <td>line_items</td>
 <td>array</td>
-<td>Array of objects</td>
+<td>Array of objects. Refer to Line Item Object</td>
+</tr>
+</tbody></table>
+
+<h4 id="customer-object">Customer Object</h4>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>custid</td>
+<td>string</td>
+<td>Customer ID</td>
 </tr>
 <tr>
-<td>&ndash; id</td>
+<td>first_name</td>
+<td>string</td>
+<td>Customer&rsquo;s firstname</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>string</td>
+<td>Customer&rsquo;s lastname</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Customer&rsquo;s email</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>Customer&rsquo;s contact number</td>
+</tr>
+<tr>
+<td>company</td>
+<td>string</td>
+<td>Company</td>
+</tr>
+<tr>
+<td>street1</td>
+<td>string</td>
+<td>Street 1</td>
+</tr>
+<tr>
+<td>street2</td>
+<td>string</td>
+<td>Street 2</td>
+</tr>
+<tr>
+<td>city</td>
+<td>string</td>
+<td>City</td>
+</tr>
+<tr>
+<td>state</td>
+<td>string</td>
+<td>State</td>
+</tr>
+<tr>
+<td>zip</td>
+<td>string</td>
+<td>ZIP</td>
+</tr>
+</tbody></table>
+
+<h4 id="line-item-object">Line Item Object</h4>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
 <td>integer</td>
 <td>ID</td>
 </tr>
 <tr>
-<td>&ndash; sku</td>
+<td>sku</td>
 <td>integer</td>
 <td>Item identification code</td>
 </tr>
 <tr>
-<td>&ndash; name</td>
+<td>name</td>
 <td>integer</td>
 <td>Item name</td>
 </tr>
 <tr>
-<td>&ndash; quantity</td>
+<td>quantity</td>
 <td>integer</td>
 <td>Number of items</td>
 </tr>
 <tr>
-<td>&ndash; total_cost</td>
+<td>total_cost</td>
 <td>float</td>
 <td>Total cost of the item</td>
 </tr>
 <tr>
-<td>&ndash; due_date</td>
+<td>due_date</td>
 <td>string</td>
 <td>Date due (Y-m-d)</td>
 </tr>
 <tr>
-<td>&ndash; child</td>
-<td>array</td>
+<td>order</td>
+<td>numeric/optional</td>
 <td>Items as a child</td>
 </tr>
 <tr>
-<td>- -id</td>
+<td>child</td>
+<td>array</td>
+<td>Items as a child</td>
+</tr>
+</tbody></table>
+
+<h4 id="line-item-child-object">Line Item Child Object</h4>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
 <td>integer</td>
 <td>Item id</td>
 </tr>
 <tr>
-<td>- -sku</td>
+<td>sku</td>
 <td>string</td>
 <td>Item identification code</td>
 </tr>
 <tr>
-<td>- -name</td>
+<td>name</td>
 <td>string</td>
 <td>Item name</td>
 </tr>
 <tr>
-<td>- -quantity</td>
+<td>quantity</td>
 <td>integer</td>
 <td>Number of items</td>
 </tr>
 <tr>
-<td>- -total_cost</td>
+<td>total_cost</td>
 <td>float</td>
 <td>Total cost of the item</td>
+</tr>
+<tr>
+<td>order</td>
+<td>numeric/optional</td>
+<td>Items as a child</td>
 </tr>
 </tbody></table>
 
