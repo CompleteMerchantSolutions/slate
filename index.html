@@ -1757,57 +1757,42 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 <p>Request JSON structure like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV-0003"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/invoice_logos.s3.amazonaws.com\/bleh.png"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"mail_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"credit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$12.00"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"mail_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@email.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"include_pdf"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9ypnPRT9v2ChPCQv"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"custid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9ypnPRT9v2ChPCQv_2266"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer  "</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Portal"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@email.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ming-123"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peanut"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.00"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-07"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"child"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">124</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ming-456"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Butter"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.00"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-            </span><span class="p">}]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STBJ"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Strawberry Jam"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115.50"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-07"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"child"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+  </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV-1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-14"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/invoice_logos.s3.amazonaws.com\/cms_logo.png"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mail_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This email is a reminder that the balance on your account is {tag:invoice_total}. We accept MasterCard, VISA, Discover and American Express. If your payment is already on its way, we thank you and ask that you please disregard this notice. If not, we would appreciate receipt of your payment as soon as possible. If you would like to further discuss the details of your account, please do not hesitate to call billing at {tag:invoice_merchant_contact}."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"credit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mail_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"youremail@email.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"include_pdf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"include_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"login_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/slycegateway.local\/\/login"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9ypnPRT9v2ChPCQx"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"webhook_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:\/\/slycegateway.local\/"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"custid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9ypnPRT9v2ChPCQv_2266"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer  "</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Portal"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"youremail@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"233"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1233476"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My ProductName 11"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-14"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1819,171 +1804,45 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 
 <h3 id="data-object">Data Object</h3>
 
-<table><thead>
-<tr>
-<th>Field Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>number</td>
-<td>string</td>
-<td>Invoice Number</td>
-</tr>
-<tr>
-<td>date</td>
-<td>string</td>
-<td>Invoice Date (Y-m-d).</td>
-</tr>
-<tr>
-<td>logo</td>
-<td>string</td>
-<td>Invoice logo link.</td>
-</tr>
-<tr>
-<td>mail_to</td>
-<td>string</td>
-<td>Email where invoice will be send</td>
-</tr>
-<tr>
-<td>mail_body</td>
-<td>string</td>
-<td>Email body. Can be html.</td>
-</tr>
-<tr>
-<td>credit</td>
-<td>string</td>
-<td>Customer credit</td>
-</tr>
-<tr>
-<td>customer</td>
-<td>json</td>
-<td>Json data of customer. Refer to <a href="#customer-object">Customer Object</a></td>
-</tr>
-<tr>
-<td>line_items</td>
-<td>array</td>
-<td>Array of objects. Refer to <a href="#line-item-object">Line Item Object</a></td>
-</tr>
-</tbody></table>
+<p>Field Name | Required | Type | Description
+&mdash;&mdash;&mdash;|&mdash;&ndash;|&mdash;&mdash;
+number | yes | string | Invoice Number
+date | yes | string | Invoice Date (Y-m-d).
+logo | | string | Invoice logo link.
+mail_to | yes | string | Email where invoice will be send
+mail_body | | string | Email body. Can be html.
+credit | | string | Customer credit
+customer | | json | Json data of customer. Refer to <a href="#customer-object">Customer Object</a>
+line_items | | array | Array of objects. Refer to <a href="#line-item-object">Line Item Object</a></p>
 
 <h3 id="customer-object">Customer Object</h3>
 
-<table><thead>
-<tr>
-<th>Field Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>custid</td>
-<td>string</td>
-<td>Customer ID</td>
-</tr>
-<tr>
-<td>first_name</td>
-<td>string</td>
-<td>Customer&rsquo;s firstname</td>
-</tr>
-<tr>
-<td>last_name</td>
-<td>string</td>
-<td>Customer&rsquo;s lastname</td>
-</tr>
-<tr>
-<td>email</td>
-<td>string</td>
-<td>Customer&rsquo;s email</td>
-</tr>
-<tr>
-<td>phone</td>
-<td>string</td>
-<td>Customer&rsquo;s contact number</td>
-</tr>
-<tr>
-<td>company</td>
-<td>string</td>
-<td>Company</td>
-</tr>
-<tr>
-<td>street1</td>
-<td>string</td>
-<td>Street 1</td>
-</tr>
-<tr>
-<td>street2</td>
-<td>string</td>
-<td>Street 2</td>
-</tr>
-<tr>
-<td>city</td>
-<td>string</td>
-<td>City</td>
-</tr>
-<tr>
-<td>state</td>
-<td>string</td>
-<td>State</td>
-</tr>
-<tr>
-<td>zip</td>
-<td>string</td>
-<td>ZIP</td>
-</tr>
-</tbody></table>
+<p>Field Name|Required|Type| Description
+&mdash;&mdash;&mdash;|&mdash;&ndash;|&mdash;&mdash;
+custid | yes | string | Customer ID
+first_name | | string | Customer&rsquo;s firstname
+last_name | | string | Customer&rsquo;s lastname
+email | yes | string | Customer&rsquo;s email
+phone | | string | Customer&rsquo;s contact number
+company | | string | Company
+street1 | | string | Street 1
+street2 | | string | Street 2
+city | | string | City
+state | | string | State
+zip | | string | ZIP</p>
 
 <h3 id="line-item-object">Line Item Object</h3>
 
-<table><thead>
-<tr>
-<th>Field Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>integer</td>
-<td>ID</td>
-</tr>
-<tr>
-<td>sku</td>
-<td>integer</td>
-<td>Item identification code</td>
-</tr>
-<tr>
-<td>name</td>
-<td>integer</td>
-<td>Item name</td>
-</tr>
-<tr>
-<td>quantity</td>
-<td>integer</td>
-<td>Number of items</td>
-</tr>
-<tr>
-<td>total_cost</td>
-<td>float</td>
-<td>Total cost of the item</td>
-</tr>
-<tr>
-<td>due_date</td>
-<td>string</td>
-<td>Date due (Y-m-d)</td>
-</tr>
-<tr>
-<td>order</td>
-<td>numeric</td>
-<td>Item ordering</td>
-</tr>
-<tr>
-<td>child</td>
-<td>array</td>
-<td>Items as a child. Refer to <a href="#line-item-child-object">Line Item Child Object</a></td>
-</tr>
-</tbody></table>
+<p>Field Name|Required|Type|Description
+&mdash;&mdash;&mdash;|&mdash;&ndash;|&mdash;&mdash;
+id | yes | integer | ID
+sku | yes | integer | Item identification code
+name | yes | integer | Item name
+quantity | yes | integer | Number of items
+total_cost | yes | float | Total cost of the item
+due_date |yes | string | Date due (Y-m-d)
+order | | numeric | Item ordering
+child | | array | Items as a child. Refer to <a href="#line-item-child-object">Line Item Child Object</a></p>
 
 <h3 id="line-item-child-object">Line Item Child Object</h3>
 
@@ -2134,7 +1993,7 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 </tr>
 </tbody></table>
 
-<h2 id="update-logo">Update Logo</h2>
+<h2 id="update">Update</h2>
 
 <blockquote>
 <p>Returns JSON structured like this:</p>
@@ -2147,91 +2006,74 @@ You must replace <code>meowmeowmeow</code> with your own API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This method lets you update the merchant logo.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST invoice/merchant/logo</code></p>
-
-<h3 id="post-data">POST Data</h3>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>logo</td>
-<td>Field name from input form data</td>
-</tr>
-</tbody></table>
-
-<h2 id="cancel-invoice">Cancel Invoice</h2>
-
 <blockquote>
-<p>Returns JSON structured like this:</p>
+<p>Request JSON structure like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV-1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-06"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https:\/\/invoice_logos.s3.amazonaws.com\/bleh.png"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mail_body"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"credit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mail_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"youremail@email.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"include_pdf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"include_login"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"login_url"</span><span class="p">:</span><span class="s2">"http://test@test.com/test"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"webhook_url"</span><span class="p">:</span><span class="s2">"http://test@test.com/test"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9ypnPRT9v2ChPCQx"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"sent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PN01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peanut"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-07"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"order"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">125</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PNM01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PMayo"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-3.00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"order"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STBJ"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Strawberry Jam"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115.50"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-07"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"order"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"child"</span><span class="p">:[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This method lets you set the Invoice as &lsquo;Cancelled&rsquo;.</p>
+<p>This method lets you update the invoice.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST invoice/&lt;ID&gt;/cancel</code></p>
+<p><code class="prettyprint">POST invoice/update/{id}</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h3 id="data-object">Data Object</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The hash of the invoice.</td>
-</tr>
-</tbody></table>
-
-<h2 id="paid-invoice">Paid Invoice</h2>
-
-<blockquote>
-<p>Returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This method lets you set the invoice as &#39;Paid&rsquo;.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST invoice/&lt;ID&gt;/paid</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The hash of the invoice.</td>
-</tr>
-</tbody></table>
+<p>Field Name | Required | Type | Description
+&mdash;&mdash;&mdash;|&mdash;&ndash;|&mdash;&mdash;
+number | yes | string | Invoice Number
+date | yes | string | Invoice Date (Y-m-d).
+logo | | string | Invoice logo link.
+mail_to | yes | string | Email where invoice will be send
+mail_body | | string | Email body. Can be html.
+credit | | string | Customer credit
+customer | | json | Json data of customer. Refer to <a href="#customer-object">Customer Object</a>
+line_items | | array | Array of objects. Refer to <a href="#line-item-object">Line Item Object</a></p>
 
           <h1 id="errors">Errors</h1>
 
