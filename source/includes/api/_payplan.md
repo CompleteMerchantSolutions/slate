@@ -285,7 +285,7 @@ This method lets you create new recurring plan.
 
 ### HTTP Request
 
-`POST recurring plan`
+`POST recurring`
 
 ### Query Parameters
 
