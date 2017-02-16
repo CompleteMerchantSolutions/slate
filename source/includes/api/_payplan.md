@@ -216,7 +216,7 @@ This endpoint retrieves all recurring plans.
 
 ### HTTP Request
 
-`GET recurring plans`
+`GET recurring`
 
 ### Query Parameters
 
