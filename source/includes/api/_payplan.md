@@ -583,7 +583,7 @@ This method lets you remove the unpaid fees identified by an SKU.
 
 #### HTTP Request
 
-`POST recurring/<PLANID>/fees/<SKU>`
+`DELETE recurring/<PLANID>/fees/<SKU>`
 
 #### URL Parameters
 
