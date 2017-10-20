@@ -341,7 +341,7 @@ CUSTID | The ID of the customer.
 Parameter | Default | Description
 --------- | ------- | -----------
 lastfour* |  | Last four digits of the card number.
-reference* |  | Card Reference Token from the Slyce Plugin.
+reference* |  | Card Reference Token from the Plugin.
 type* |  | Type of card (Visa, Mastercard, etc., ) .
 name |  | Optional nickname for the card.
 
