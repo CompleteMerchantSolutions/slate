@@ -15,8 +15,8 @@ $( document ).ready(function() {
 	function walkText(node) {
 
 	  if (node.nodeType == 3) {
-	  	node.data = node.data.replace(/Slyce API/g, "emvio api");
-	  	node.data = node.data.replace(/api.slycepay/g, "api.emvio");
+	  	node.data = node.data.replace(/Slyce API/g, "emvio API");
+	  	node.data = node.data.replace(/api.slycepay/g, "api2.emvio");
 		node.data = node.data.replace(/slycepay/g, "emvio");
 		node.data = node.data.replace(/slyce/g, "emvio");
 		node.data = node.data.replace(/Slyce/g, "emvio");
